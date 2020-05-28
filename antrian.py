@@ -6,6 +6,9 @@ Created on Wed May 27 18:59:42 2020
 """
 
 import random
+import queue
+
+QUEUE_SIZE = 7
 
 
 class Event:
@@ -32,6 +35,7 @@ haventArrived = False
 eventBin = []
 timestamp = []
 eventTrack = []
+dropped = []
 
 # the first customer is arriving and entering the server when the system starts
 custArrive += 1
@@ -46,7 +50,10 @@ newEvent = Event('service')
 listOfEvents.append(newEvent)
 print(f'Next completed {newEvent.eventType} in {str(newEvent.rate)} \n')
 
-n = 10
+# initialize queue
+q = queue.Queue(QUEUE_SIZE)
+
+n = 1000
 i = 0
 while i < n:
     # take the first coming event from queue
@@ -66,27 +73,36 @@ while i < n:
     if temp.eventType == 'arrival':
         custArrive += 1
         time += temp.rate
-        print(f'Customer{str(custArrive)} datang pada detik ke {str(time)}.')
-        newEvent = Event('arrival')
         listOfEvents.remove(temp)
-
         # if the arrival happens because of other than haventArrived situation
         if not haventArrived:
             listOfEvents = decrease_rate(temp, listOfEvents)
+        newEvent = Event('arrival')
+        try:
+            q.put_nowait(custArrive)
+            print(
+                f'Customer{str(custArrive)} datang pada detik ke {str(time)}.')
 
-        # if there is no queue, the new customer will be straight to the server
-        if custArrive == custServiced:
-            print(f'Customer {str(custServiced)} masuk ke server.')
+            # if there is no queue, the new customer will be straight to the server
+            if custArrive == custServiced:
+                print(f'Customer{str(custServiced)} masuk ke server.')
+                q.get_nowait()
+        except Exception as e:
+            print(
+                f"Queue is full, Customer{str(custArrive)} dropped. Time: {str(time)}")
+            dropped.append(custArrive)
     else:
         time += temp.rate
-        print(f'Customer{str(custServiced)} pergi pada detik ke {str(time)}.')
         newEvent = Event('service')
         listOfEvents.remove(temp)
         listOfEvents = decrease_rate(temp, listOfEvents)
-        custServiced += 1
-        # if the next customer have arrived, the next customer is entering the server
-        if custArrive >= custServiced:
-            print(f'Customer{str(custServiced)} masuk ke server.')
+        if custServiced not in dropped:
+            print(
+                f'Customer{str(custServiced)} pergi pada detik ke {str(time)}.')
+            # if the next customer have arrived, the next customer is entering the server
+            if not q.empty():
+                custServiced = q.get_nowait()
+                print(f'Customer{str(custServiced)} masuk ke server.')
 
     listOfEvents.append(newEvent)
     if (newEvent.eventType == 'arrival'):
