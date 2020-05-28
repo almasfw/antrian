@@ -7,14 +7,16 @@ Created on Wed May 27 18:59:42 2020
 
 import random
 import queue
+import math
 
 QUEUE_SIZE = 7
+exp_dist_lambda = 0.5
 
 
 class Event:
     def __init__(self, eventType):
         self.eventType = eventType
-        self.rate = random.random()
+        self.rate = CDF_inverse(random.random())
         # if eventType == arrival, rate is the time needed until the next customer arrives
         # if eventType == service, rate is the time needed for server to serve the customer that is in it
 
@@ -25,6 +27,11 @@ def decrease_rate(tempEvent, listOfEvents):
         print(f"Remaining {event.eventType} time: {str(event.rate)}")
     return listOfEvents
 
+
+# function to calculate rate from exponential distribution
+def CDF_inverse(CDF):
+    return -1 * math.log(1-CDF) / exp_dist_lambda
+    
 
 listOfEvents = []
 custArrive = 0
