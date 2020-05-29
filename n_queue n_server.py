@@ -69,10 +69,15 @@ for i in range(servers):
     print(f'Next completed {newEvent.eventType} in {str(newEvent.rate)} \n')
 
 
-n = 6
+n = 10
 i = 0
 temp = ['' for i in range(servers)]
 while i < n:
+    
+    #variabel ini akan False ketika customer pergi dari server sedangkan customer selanjutnya belum datang
+    #hal tersebut supaya sistem tidak menambah event 'service' sehingga setelah customer pertama pergi dari server, event selanjutnya adalah arrival customer kedua
+    canAddNewEvent = True
+    
     # take the first coming event from queue
     print(f'iterations: {i+1}')
     k = i % servers
@@ -80,7 +85,7 @@ while i < n:
 
     j = 0
     # search for an arrival event if temp is service event but the next customer have not arrived yet
-    while (temp[k].eventType == 'service') & (custArrive[k] < custServiced[k]) & (j < (len(listOfEvents[k])-1)):
+    while (temp[k].eventType == 'service') & (custArrive < custServiced) & (j < (len(listOfEvents[k])-1)):
         print('Next customer have not arrived yet.')
         haventArrived = True
         j += 1
@@ -109,22 +114,28 @@ while i < n:
             dropped.append(custArrive[k])
     else:
         time[k] += temp[k].rate
-        newEvent = Event('service')
+        if queues[k].qsize() > 0:
+            newEvent = Event('service')
+        else:
+            canAddNewEvent = False
+    
         listOfEvents[k].remove(temp[k])
         listOfEvents[k] = decrease_rate(temp[k], listOfEvents[k])
         if custServiced[k] not in dropped:
             print(
-                f'Customer{str(custServiced[k])}{k+1} is leaving the server {k+1}. Time: {str(time[k])}')
+                f'Customer{str(custServiced[k])}{k+1} is leaving the server {k+1}. Time: {str(time[k])} \n')
             # if the next customer have arrived, the next customer is entering the server
             if not queues[k].empty():
                 custServiced[k] = queues[k].get_nowait()
                 print(f'Customer{str(custServiced[k])}{k+1} is served in server {k+1}.')
 
-    listOfEvents[k].append(newEvent)
-    if (newEvent.eventType == 'arrival'):
-        print(f'Next {newEvent.eventType} in {str(newEvent.rate)} \n')
-    else:
-        print(
-            f'Next completed {newEvent.eventType} in {str(newEvent.rate)} \n')
+    if(canAddNewEvent):
+        listOfEvents[k].append(newEvent)
+        if (newEvent.eventType == 'arrival'):
+            print(f'Next {newEvent.eventType} in {str(newEvent.rate)} \n')
+        else:
+            print(
+                f'Next completed {newEvent.eventType} in {str(newEvent.rate)} \n')
+        
     i += 1
     haventArrived = False
