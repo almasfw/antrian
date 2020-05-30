@@ -42,7 +42,7 @@ class Event:
 def decrease_rate(tempEvent, listOfEvents):
     for event in listOfEvents:
         event.rate -= tempEvent.rate
-        writer.writerow([f'[Time: {str(time)}] Remaining {event.eventType} time: {str(event.rate)}'])
+        # writer.writerow([f'[Time: {str(time)}] Remaining {event.eventType} time: {str(event.rate)}'])
     return listOfEvents
 
 
@@ -59,15 +59,13 @@ custArrive += 1
 writer.writerow([f'[Time: {str(time)}] Customer{str(custArrive)} is coming to the system.'])
 newEvent = Event('arrival')
 listOfEvents.append(newEvent)
-writer.writerow([f'[Time: {str(time)}] Next {newEvent.eventType} in {str(newEvent.rate)}'])
-print(newEvent.rate)
+# writer.writerow([f'[Time: {str(time)}] Next {newEvent.eventType} in {str(newEvent.rate)}'])
 
 custServiced += 1
 writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is served.'])
 newEvent = Event('service')
 listOfEvents.append(newEvent)
-writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} in {str(newEvent.rate)}.'])
-print(newEvent.rate)
+# writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} in {str(newEvent.rate)}.'])
 
 # initialize queue
 q = queue.Queue(QUEUE_SIZE)
@@ -80,7 +78,7 @@ while i < n:
     j = 0
     # search for an arrival event if temp is service event but the next customer have not arrived yet
     while (temp.eventType == 'service') & (custArrive < custServiced) & (j < (len(listOfEvents)-1)):
-        writer.writerow([f'[Time: {str(time)}] Next customer have not arrived yet.'])
+        # writer.writerow([f'[Time: {str(time)}] Next customer have not arrived yet.'])
         haventArrived = True
         j += 1
         temp = sorted(listOfEvents, key=lambda event: event.rate)[j]
@@ -112,15 +110,17 @@ while i < n:
         if custServiced not in dropped:
             writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is leaving.'])
             custServiced += 1
+            while custServiced in dropped:
+                custServiced += 1
             q.get_nowait()
             # if the next customer have arrived, the next customer is entering the server
-            if (q.qsize() > 1):
+            if q.empty():
                 writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is served.'])
 
     listOfEvents.append(newEvent)
-    if (newEvent.eventType == 'arrival'):
-        writer.writerow([f'[Time: {str(time)}] Next {newEvent.eventType} in {str(newEvent.rate)}.'])
-    else:
-        writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} in {str(newEvent.rate)}.'])
+    # if (newEvent.eventType == 'arrival'):
+    #     writer.writerow([f'[Time: {str(time)}] Next {newEvent.eventType} in {str(newEvent.rate)}.'])
+    # else:
+    #     writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} in {str(newEvent.rate)}.'])
     i += 1
     haventArrived = False
