@@ -51,8 +51,6 @@ class Event:
 
 def decrease_rate(tempEvent, listOfEvents):
     for event in listOfEvents:
-        if event.eventType == 'arrival' or (event.eventType == 'service' and not servers[event.server_label].empty()):
-            event.rate -= tempEvent.rate
         if event.eventType == 'arrival':
             print(
                 f"[Time: {str(time)}] Remaining {event.eventType} time in Queue: {str(event.rate)}")
