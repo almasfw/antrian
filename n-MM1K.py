@@ -56,14 +56,6 @@ def CDF_inverse(CDF):
     return -1 * math.log(1-CDF) / exp_dist_lambda
 
 
-def get_min_queue(queue):
-    sizes = []
-    for q in queue:
-        size = q.qsize()
-        sizes.append(size)
-
-    return sizes.index(min(sizes))
-
 
 def init_queue(queue_label):
     global custArrive
