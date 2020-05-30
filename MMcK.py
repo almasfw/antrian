@@ -99,11 +99,12 @@ def init_queue(q, server_label):
     servers[server_label].put_nowait(custServiced)
     print(
         f'[Time: {str(time)}] Customer{str(custServiced)} is being served in Server {server_label}.')
-    newEvent = Event()
-    newEvent.service(server_label)
-    listOfEvents.append(newEvent)
-    print(
-        f'[Time: {str(time)}] Next completed {newEvent.eventType} for Server {server_label} in {str(newEvent.rate)} \n')
+    for server in range(SERVERS):
+        newEvent = Event()
+        newEvent.service(server)
+        listOfEvents.append(newEvent)
+        print(
+            f'[Time: {str(time)}] Next completed {newEvent.eventType} for Server {server} in {str(newEvent.rate)} \n')
 
 
 def start_queue(q, server_label, temp):
@@ -175,7 +176,7 @@ def main():
     q = queue.Queue(QUEUE_SIZE)
     for i in range(SERVERS):
         servers.append(queue.Queue(1))
-        init_queue(q, i)
+    init_queue(q, 0)
 
     while n > 0:
         # restore events
