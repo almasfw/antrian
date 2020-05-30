@@ -2,7 +2,7 @@
 """
 Created on Sat May 30 2020
 
-Module for n*M/M/1 queue problem, with the assumption that each queue share the same pool
+Module for n*M/M/1/K queue problem, with the assumption that each queue share the same pool
 
 @author: Almas Fauzia
          Gregorius Aria Neruda
@@ -16,7 +16,9 @@ import math
 # Global variables
 exp_dist_lambda = 0.5
 
-QUEUE_SIZE = 7  # maximum amount of customer inside queue, set to `0` if infinite
+# maximum amount of customer inside queue (K-1), set to `0` if infinite
+QUEUE_SIZE = 7
+
 QUEUES = 3  # the amount of M/M/1 queues (n)
 dropped = []
 queues = []
