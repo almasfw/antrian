@@ -1,0 +1,331 @@
+[Time: 0] Customer1 is coming to the system.
+[Time: 0] Next arrival in 0.033378802253851966
+[Time: 0] Customer1 is served.
+[Time: 0] Next completed service in 5.205547725279377.
+[Time: 0.033378802253851966] Remaining service time: 5.1721689230255254
+[Time: 0.033378802253851966] Customer2 is coming to the system.
+[Time: 0.033378802253851966] Next arrival in 0.2822394234076227.
+[Time: 0.3156182256614747] Remaining service time: 4.889929499617903
+[Time: 0.3156182256614747] Customer3 is coming to the system.
+[Time: 0.3156182256614747] Next arrival in 0.5922632443141146.
+[Time: 0.9078814699755893] Remaining service time: 4.297666255303788
+[Time: 0.9078814699755893] Customer4 is coming to the system.
+[Time: 0.9078814699755893] Next arrival in 0.12548315060777931.
+[Time: 1.0333646205833686] Remaining service time: 4.172183104696009
+[Time: 1.0333646205833686] Customer5 is coming to the system.
+[Time: 1.0333646205833686] Next arrival in 0.15873095649521493.
+[Time: 1.1920955770785835] Remaining service time: 4.013452148200794
+[Time: 1.1920955770785835] Customer6 is coming to the system.
+[Time: 1.1920955770785835] Next arrival in 0.3353915597144098.
+[Time: 1.5274871367929932] Remaining service time: 3.678060588486384
+[Time: 1.5274871367929932] Customer7 is coming to the system.
+[Time: 1.5274871367929932] Next arrival in 3.6586113254646677.
+[Time: 5.186098462257661] Remaining service time: 0.019449263021716234
+[Time: 5.186098462257661] Customer8 is coming to the system.
+[Time: 5.186098462257661] Next arrival in 0.7812300190058862.
+[Time: 5.205547725279377] Remaining arrival time: 0.7617807559841699
+[Time: 5.205547725279377] Customer1 is leaving.
+[Time: 5.205547725279377] Customer2 is served.
+[Time: 5.205547725279377] Next completed service in 1.2241303900031235.
+[Time: 5.967328481263547] Remaining service time: 0.46234963401895357
+[Time: 5.967328481263547] Customer9 is coming to the system.
+[Time: 5.967328481263547] Next arrival in 1.9175867057862483.
+[Time: 6.429678115282501] Remaining arrival time: 1.4552370717672947
+[Time: 6.429678115282501] Customer2 is leaving.
+[Time: 6.429678115282501] Customer3 is served.
+[Time: 6.429678115282501] Next completed service in 4.796097502634923.
+[Time: 7.8849151870497955] Remaining service time: 3.340860430867628
+[Time: 7.8849151870497955] Customer10 is coming to the system.
+[Time: 7.8849151870497955] Next arrival in 6.325783922005996.
+[Time: 11.225775617917424] Remaining arrival time: 2.9849234911383684
+[Time: 11.225775617917424] Customer3 is leaving.
+[Time: 11.225775617917424] Customer4 is served.
+[Time: 11.225775617917424] Next completed service in 5.0218299979304835.
+[Time: 14.210699109055792] Remaining service time: 2.036906506792115
+[Time: 14.210699109055792] Customer11 is coming to the system.
+[Time: 14.210699109055792] Next arrival in 3.3404125048195503.
+[Time: 16.247605615847906] Remaining arrival time: 1.3035059980274353
+[Time: 16.247605615847906] Customer4 is leaving.
+[Time: 16.247605615847906] Customer5 is served.
+[Time: 16.247605615847906] Next completed service in 1.0236705627590752.
+[Time: 17.271276178606982] Remaining arrival time: 0.2798354352683601
+[Time: 17.271276178606982] Customer5 is leaving.
+[Time: 17.271276178606982] Customer6 is served.
+[Time: 17.271276178606982] Next completed service in 0.001484903234765641.
+[Time: 17.272761081841747] Remaining arrival time: 0.27835053203359444
+[Time: 17.272761081841747] Customer6 is leaving.
+[Time: 17.272761081841747] Customer7 is served.
+[Time: 17.272761081841747] Next completed service in 4.360505112381895.
+[Time: 17.551111613875342] Remaining service time: 4.0821545803483
+[Time: 17.551111613875342] Customer12 is coming to the system.
+[Time: 17.551111613875342] Next arrival in 0.4700737824529979.
+[Time: 18.02118539632834] Remaining service time: 3.6120807978953025
+[Time: 18.02118539632834] Customer13 is coming to the system.
+[Time: 18.02118539632834] Next arrival in 0.7630182109081552.
+[Time: 18.784203607236496] Remaining service time: 2.8490625869871473
+[Time: 18.784203607236496] Customer14 is coming to the system.
+[Time: 18.784203607236496] Next arrival in 1.4512835393624648.
+[Time: 20.23548714659896] Remaining service time: 1.3977790476246825
+"[Time: 20.23548714659896] Queue is full, Customer15 dropped."
+[Time: 20.23548714659896] Next arrival in 1.1580759039020025.
+[Time: 21.393563050500962] Remaining service time: 0.23970314372267998
+"[Time: 21.393563050500962] Queue is full, Customer16 dropped."
+[Time: 21.393563050500962] Next arrival in 0.8922662219641964.
+[Time: 21.63326619422364] Remaining arrival time: 0.6525630782415164
+[Time: 21.63326619422364] Customer7 is leaving.
+[Time: 21.63326619422364] Customer8 is served.
+[Time: 21.63326619422364] Next completed service in 0.46025426392446817.
+[Time: 22.09352045814811] Remaining arrival time: 0.19230881431704822
+[Time: 22.09352045814811] Customer8 is leaving.
+[Time: 22.09352045814811] Customer9 is served.
+[Time: 22.09352045814811] Next completed service in 0.4932767889752881.
+[Time: 22.285829272465158] Remaining service time: 0.3009679746582399
+[Time: 22.285829272465158] Customer17 is coming to the system.
+[Time: 22.285829272465158] Next arrival in 0.5734908687949876.
+[Time: 22.586797247123396] Remaining arrival time: 0.2725228941367477
+[Time: 22.586797247123396] Customer9 is leaving.
+[Time: 22.586797247123396] Customer10 is served.
+[Time: 22.586797247123396] Next completed service in 1.963694817920502.
+[Time: 22.859320141260145] Remaining service time: 1.6911719237837544
+[Time: 22.859320141260145] Customer18 is coming to the system.
+[Time: 22.859320141260145] Next arrival in 2.761952048673526.
+[Time: 24.5504920650439] Remaining arrival time: 1.0707801248897717
+[Time: 24.5504920650439] Customer10 is leaving.
+[Time: 24.5504920650439] Customer11 is served.
+[Time: 24.5504920650439] Next completed service in 0.8774739354038916.
+[Time: 25.427966000447793] Remaining arrival time: 0.19330618948588008
+[Time: 25.427966000447793] Customer11 is leaving.
+[Time: 25.427966000447793] Customer12 is served.
+[Time: 25.427966000447793] Next completed service in 1.647815365271016.
+[Time: 25.621272189933674] Remaining service time: 1.4545091757851358
+[Time: 25.621272189933674] Customer19 is coming to the system.
+[Time: 25.621272189933674] Next arrival in 0.3044586875774997.
+[Time: 25.925730877511175] Remaining service time: 1.1500504882076361
+[Time: 25.925730877511175] Customer20 is coming to the system.
+[Time: 25.925730877511175] Next arrival in 0.6279426416738979.
+[Time: 26.55367351918507] Remaining service time: 0.5221078465337382
+[Time: 26.55367351918507] Customer21 is coming to the system.
+[Time: 26.55367351918507] Next arrival in 1.171994671690266.
+[Time: 27.07578136571881] Remaining arrival time: 0.6498868251565278
+[Time: 27.07578136571881] Customer12 is leaving.
+[Time: 27.07578136571881] Customer13 is served.
+[Time: 27.07578136571881] Next completed service in 0.9979361616054114.
+[Time: 27.72566819087534] Remaining service time: 0.3480493364488836
+[Time: 27.72566819087534] Customer22 is coming to the system.
+[Time: 27.72566819087534] Next arrival in 1.8517515111234701.
+[Time: 28.073717527324224] Remaining arrival time: 1.5037021746745864
+[Time: 28.073717527324224] Customer13 is leaving.
+[Time: 28.073717527324224] Customer14 is served.
+[Time: 28.073717527324224] Next completed service in 4.544720307323154.
+[Time: 29.57741970199881] Remaining service time: 3.041018132648568
+[Time: 29.57741970199881] Customer23 is coming to the system.
+[Time: 29.57741970199881] Next arrival in 3.756993443756215.
+[Time: 32.61843783464738] Remaining arrival time: 0.715975311107647
+[Time: 32.61843783464738] Customer14 is leaving.
+[Time: 32.61843783464738] Customer15 is served.
+[Time: 32.61843783464738] Next completed service in 0.1727073267094023.
+[Time: 32.79114516135678] Remaining arrival time: 0.5432679843982446
+[Time: 32.79114516135678] Next completed service in 2.1067198646936407.
+[Time: 33.33441314575502] Remaining service time: 1.563451880295396
+[Time: 33.33441314575502] Customer24 is coming to the system.
+[Time: 33.33441314575502] Next arrival in 0.4023616960869201.
+[Time: 33.73677484184194] Remaining service time: 1.161090184208476
+"[Time: 33.73677484184194] Queue is full, Customer25 dropped."
+[Time: 33.73677484184194] Next arrival in 0.6485592434930021.
+[Time: 34.38533408533495] Remaining service time: 0.5125309407154739
+"[Time: 34.38533408533495] Queue is full, Customer26 dropped."
+[Time: 34.38533408533495] Next arrival in 1.561823754134016.
+[Time: 34.89786502605042] Remaining arrival time: 1.0492928134185422
+[Time: 34.89786502605042] Next completed service in 3.930798610835232.
+[Time: 35.94715783946896] Remaining service time: 2.8815057974166898
+"[Time: 35.94715783946896] Queue is full, Customer27 dropped."
+[Time: 35.94715783946896] Next arrival in 1.6582790840244799.
+[Time: 37.605436923493436] Remaining service time: 1.22322671339221
+"[Time: 37.605436923493436] Queue is full, Customer28 dropped."
+[Time: 37.605436923493436] Next arrival in 1.3767994766005316.
+[Time: 38.82866363688564] Remaining arrival time: 0.1535727632083217
+[Time: 38.82866363688564] Next completed service in 1.0187872693758464.
+[Time: 38.98223640009397] Remaining service time: 0.8652145061675247
+"[Time: 38.98223640009397] Queue is full, Customer29 dropped."
+[Time: 38.98223640009397] Next arrival in 3.3157444982341366.
+[Time: 39.84745090626149] Remaining arrival time: 2.450529992066612
+[Time: 39.84745090626149] Next completed service in 2.878005757129075.
+[Time: 42.297980898328106] Remaining service time: 0.427475765062463
+"[Time: 42.297980898328106] Queue is full, Customer30 dropped."
+[Time: 42.297980898328106] Next arrival in 5.2316565573923075.
+[Time: 42.72545666339057] Remaining arrival time: 4.804180792329845
+[Time: 42.72545666339057] Next completed service in 4.043028607382201.
+[Time: 46.76848527077277] Remaining arrival time: 0.7611521849476439
+[Time: 46.76848527077277] Next completed service in 0.9805144152897773.
+[Time: 47.52963745572042] Remaining service time: 0.21936223034213342
+"[Time: 47.52963745572042] Queue is full, Customer31 dropped."
+[Time: 47.52963745572042] Next arrival in 2.466068313825656.
+[Time: 47.748999686062554] Remaining arrival time: 2.246706083483523
+[Time: 47.748999686062554] Next completed service in 5.985536897111443.
+[Time: 49.99570576954608] Remaining service time: 3.73883081362792
+"[Time: 49.99570576954608] Queue is full, Customer32 dropped."
+[Time: 49.99570576954608] Next arrival in 4.470039239941015.
+[Time: 53.734536583174] Remaining arrival time: 0.7312084263130956
+[Time: 53.734536583174] Next completed service in 2.5077324149194844.
+[Time: 54.465745009487094] Remaining service time: 1.7765239886063888
+"[Time: 54.465745009487094] Queue is full, Customer33 dropped."
+[Time: 54.465745009487094] Next arrival in 2.9047767289925264.
+[Time: 56.24226899809348] Remaining arrival time: 1.1282527403861375
+[Time: 56.24226899809348] Next completed service in 0.8880087781935455.
+[Time: 57.13027777628702] Remaining arrival time: 0.24024396219259203
+[Time: 57.13027777628702] Next completed service in 2.1944314528797655.
+[Time: 57.37052173847962] Remaining service time: 1.9541874906871735
+"[Time: 57.37052173847962] Queue is full, Customer34 dropped."
+[Time: 57.37052173847962] Next arrival in 3.806136571763954.
+[Time: 59.32470922916679] Remaining arrival time: 1.8519490810767805
+[Time: 59.32470922916679] Next completed service in 0.463989328012817.
+[Time: 59.78869855717961] Remaining arrival time: 1.3879597530639636
+[Time: 59.78869855717961] Next completed service in 1.6320619482955931.
+[Time: 61.17665831024357] Remaining service time: 0.24410219523162957
+"[Time: 61.17665831024357] Queue is full, Customer35 dropped."
+[Time: 61.17665831024357] Next arrival in 0.9325511863747754.
+[Time: 61.420760505475194] Remaining arrival time: 0.6884489911431458
+[Time: 61.420760505475194] Next completed service in 5.01931429345349.
+[Time: 62.10920949661834] Remaining service time: 4.330865302310344
+"[Time: 62.10920949661834] Queue is full, Customer36 dropped."
+[Time: 62.10920949661834] Next arrival in 3.8464916040922734.
+[Time: 65.95570110071061] Remaining service time: 0.48437369821807064
+"[Time: 65.95570110071061] Queue is full, Customer37 dropped."
+[Time: 65.95570110071061] Next arrival in 1.0107535489394608.
+[Time: 66.44007479892868] Remaining arrival time: 0.5263798507213902
+[Time: 66.44007479892868] Next completed service in 0.09535450354288659.
+[Time: 66.53542930247157] Remaining arrival time: 0.43102534717850355
+[Time: 66.53542930247157] Next completed service in 7.328324523750436.
+[Time: 66.96645464965007] Remaining service time: 6.8972991765719325
+"[Time: 66.96645464965007] Queue is full, Customer38 dropped."
+[Time: 66.96645464965007] Next arrival in 2.294439605842531.
+[Time: 69.2608942554926] Remaining service time: 4.602859570729402
+"[Time: 69.2608942554926] Queue is full, Customer39 dropped."
+[Time: 69.2608942554926] Next arrival in 2.3796734500294288.
+[Time: 71.64056770552203] Remaining service time: 2.2231861206999732
+"[Time: 71.64056770552203] Queue is full, Customer40 dropped."
+[Time: 71.64056770552203] Next arrival in 2.0465285472334274.
+[Time: 73.68709625275545] Remaining service time: 0.17665757346654587
+"[Time: 73.68709625275545] Queue is full, Customer41 dropped."
+[Time: 73.68709625275545] Next arrival in 3.6148574834914653.
+[Time: 73.863753826222] Remaining arrival time: 3.4381999100249194
+[Time: 73.863753826222] Next completed service in 6.8443550994294124.
+[Time: 77.30195373624692] Remaining service time: 3.406155189404493
+"[Time: 77.30195373624692] Queue is full, Customer42 dropped."
+[Time: 77.30195373624692] Next arrival in 1.457265705892632.
+[Time: 78.75921944213955] Remaining service time: 1.948889483511861
+"[Time: 78.75921944213955] Queue is full, Customer43 dropped."
+[Time: 78.75921944213955] Next arrival in 4.345679737759355.
+[Time: 80.70810892565142] Remaining arrival time: 2.3967902542474935
+[Time: 80.70810892565142] Next completed service in 0.8657644567322439.
+[Time: 81.57387338238367] Remaining arrival time: 1.5310257975152495
+[Time: 81.57387338238367] Next completed service in 0.3955003494347795.
+[Time: 81.96937373181845] Remaining arrival time: 1.13552544808047
+[Time: 81.96937373181845] Next completed service in 2.9344560822572356.
+[Time: 83.10489917989892] Remaining service time: 1.7989306341767657
+"[Time: 83.10489917989892] Queue is full, Customer44 dropped."
+[Time: 83.10489917989892] Next arrival in 7.749052329703028.
+[Time: 84.90382981407569] Remaining arrival time: 5.950121695526263
+[Time: 84.90382981407569] Next completed service in 0.3940507734085833.
+[Time: 85.29788058748427] Remaining arrival time: 5.556070922117679
+[Time: 85.29788058748427] Next completed service in 1.2071233868575428.
+[Time: 86.50500397434182] Remaining arrival time: 4.3489475352601366
+[Time: 86.50500397434182] Next completed service in 0.4954010016156962.
+[Time: 87.00040497595751] Remaining arrival time: 3.8535465336444403
+[Time: 87.00040497595751] Next completed service in 0.8810663280725897.
+[Time: 87.8814713040301] Remaining arrival time: 2.9724802055718507
+[Time: 87.8814713040301] Next completed service in 2.610726356541225.
+[Time: 90.49219766057132] Remaining arrival time: 0.3617538490306256
+[Time: 90.49219766057132] Next completed service in 0.4677854382465457.
+[Time: 90.85395150960194] Remaining service time: 0.10603158921592015
+"[Time: 90.85395150960194] Queue is full, Customer45 dropped."
+[Time: 90.85395150960194] Next arrival in 0.3030008535294573.
+[Time: 90.95998309881786] Remaining arrival time: 0.19696926431353717
+[Time: 90.95998309881786] Next completed service in 0.20137735772912896.
+[Time: 91.1569523631314] Remaining service time: 0.004408093415591785
+"[Time: 91.1569523631314] Queue is full, Customer46 dropped."
+[Time: 91.1569523631314] Next arrival in 2.20880169889075.
+[Time: 91.16136045654699] Remaining arrival time: 2.204393605475158
+[Time: 91.16136045654699] Next completed service in 5.523421248117889.
+[Time: 93.36575406202215] Remaining service time: 3.3190276426427308
+"[Time: 93.36575406202215] Queue is full, Customer47 dropped."
+                        [Time: 102.14903565013105] Remaining arrival time: 1.7500015892301186
+[Time: 102.14903565013105] Customer37 is leaving.
+[Time: 102.14903565013105] Customer38 is served.
+[Time: 102.14903565013105] Next completed service in 2.3849850339327228.
+[Time: 103.89903723936118] Remaining service time: 0.6349834447026041
+[Time: 103.89903723936118] Customer43 is coming to the system.
+[Time: 103.89903723936118] Next arrival in 5.832725974207376.
+[Time: 104.53402068406378] Remaining arrival time: 5.197742529504772
+[Time: 104.53402068406378] Customer38 is leaving.
+[Time: 104.53402068406378] Customer39 is served.
+[Time: 104.53402068406378] Next completed service in 2.6865121833671517.
+[Time: 107.22053286743093] Remaining arrival time: 2.5112303461376206
+[Time: 107.22053286743093] Customer39 is leaving.
+[Time: 107.22053286743093] Customer40 is served.
+[Time: 107.22053286743093] Next completed service in 1.309216259175693.
+[Time: 108.52974912660663] Remaining arrival time: 1.2020140869619276
+[Time: 108.52974912660663] Customer40 is leaving.
+[Time: 108.52974912660663] Customer41 is served.
+[Time: 108.52974912660663] Next completed service in 2.3627268098007987.
+[Time: 109.73176321356856] Remaining service time: 1.1607127228388712
+[Time: 109.73176321356856] Customer44 is coming to the system.
+[Time: 109.73176321356856] Next arrival in 0.04383620299974763.
+[Time: 109.7755994165683] Remaining service time: 1.1168765198391235
+[Time: 109.7755994165683] Customer45 is coming to the system.
+[Time: 109.7755994165683] Next arrival in 0.8549092782830158.
+[Time: 110.63050869485131] Remaining service time: 0.26196724155610773
+[Time: 110.63050869485131] Customer46 is coming to the system.
+[Time: 110.63050869485131] Next arrival in 0.261655830043139.
+[Time: 110.89216452489445] Remaining service time: 0.00031141151296870673
+[Time: 110.89216452489445] Customer47 is coming to the system.
+[Time: 110.89216452489445] Next arrival in 0.5509414411132516.
+[Time: 110.89247593640742] Remaining arrival time: 0.5506300296002828
+[Time: 110.89247593640742] Customer41 is leaving.
+[Time: 110.89247593640742] Customer42 is served.
+[Time: 110.89247593640742] Next completed service in 0.8494347180738766.
+[Time: 111.4431059660077] Remaining service time: 0.29880468847359376
+[Time: 111.4431059660077] Customer48 is coming to the system.
+[Time: 111.4431059660077] Next arrival in 1.965783638839601.
+[Time: 111.7419106544813] Remaining arrival time: 1.6669789503660073
+[Time: 111.7419106544813] Customer42 is leaving.
+[Time: 111.7419106544813] Customer43 is served.
+[Time: 111.7419106544813] Next completed service in 5.924981736705013.
+[Time: 113.4088896048473] Remaining service time: 4.258002786339006
+[Time: 113.4088896048473] Customer49 is coming to the system.
+[Time: 113.4088896048473] Next arrival in 1.5561248928051699.
+[Time: 114.96501449765248] Remaining service time: 2.701877893533836
+[Time: 114.96501449765248] Customer50 is coming to the system.
+[Time: 114.96501449765248] Next arrival in 6.858577050530334.
+[Time: 117.66689239118631] Remaining arrival time: 4.156699156996498
+[Time: 117.66689239118631] Customer43 is leaving.
+[Time: 117.66689239118631] Customer44 is served.
+[Time: 117.66689239118631] Next completed service in 0.7181358470140908.
+[Time: 118.3850282382004] Remaining arrival time: 3.438563309982407
+[Time: 118.3850282382004] Customer44 is leaving.
+[Time: 118.3850282382004] Customer45 is served.
+[Time: 118.3850282382004] Next completed service in 1.5203143128091952.
+[Time: 119.9053425510096] Remaining arrival time: 1.918248997173212
+[Time: 119.9053425510096] Customer45 is leaving.
+[Time: 119.9053425510096] Customer46 is served.
+[Time: 119.9053425510096] Next completed service in 1.9176696134367266.
+[Time: 121.82301216444633] Remaining arrival time: 0.0005793837364853616
+[Time: 121.82301216444633] Customer46 is leaving.
+[Time: 121.82301216444633] Customer47 is served.
+[Time: 121.82301216444633] Next completed service in 0.30862132310194595.
+[Time: 121.8235915481828] Remaining service time: 0.3080419393654606
+[Time: 121.8235915481828] Customer51 is coming to the system.
+[Time: 121.8235915481828] Next arrival in 1.7740855456977218.
+[Time: 122.13163348754827] Remaining arrival time: 1.4660436063322613
+[Time: 122.13163348754827] Customer47 is leaving.
+[Time: 122.13163348754827] Customer48 is served.
+[Time: 122.13163348754827] Next completed service in 2.8008110686418184.
+[Time: 123.59767709388053] Remaining service time: 1.3347674623095571
+[Time: 123.59767709388053] Customer52 is coming to the system.
+[Time: 123.59767709388053] Next arrival in 0.06827721875861945.
+[Time: 123.66595431263916] Remaining service time: 1.2664902435509378
+[Time: 123.66595431263916] Customer53 is coming to the system.
+[Time: 123.66595431263916] Next arrival in 0.7054316793773403.
+[Time: 124.3713859920165] Remaining service time: 0.5610585641735975
+[Time: 124.3713859920165] Customer54 is coming to the system.
+[Time: 124.3713859920165] Next arrival in 1.30080773197778.
