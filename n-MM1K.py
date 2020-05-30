@@ -56,7 +56,6 @@ def CDF_inverse(CDF):
     return -1 * math.log(1-CDF) / exp_dist_lambda
 
 
-
 def init_queue(queue_label):
     global custArrive
     global custServiced
@@ -70,20 +69,20 @@ def init_queue(queue_label):
     queues[queue_label].put_nowait(custArrive)
     n -= 1
     print(
-        f'[Time: {str(time)}] Customer{str(custArrive)} is entering {queue_label}.')
+        f'[Time: {str(time)}] Customer{str(custArrive)} is entering Queue {queue_label}.')
     newEvent = Event('arrival', queue_label)
     listOfEvents.append(newEvent)
     print(
-        f'[Time: {str(time)}] Next {newEvent.eventType} for {queue_label} in {str(newEvent.rate)}')
+        f'[Time: {str(time)}] Next {newEvent.eventType} for Queue {queue_label} in {str(newEvent.rate)}')
 
     custServiced = queues[queue_label].get_nowait()
     servers[queue_label].put_nowait(custServiced)
     print(
-        f'[Time: {str(time)}] Customer{str(custServiced)} is served in {queue_label}.')
+        f'[Time: {str(time)}] Customer{str(custServiced)} is being served in Queue {queue_label}.')
     newEvent = Event('service', queue_label)
     listOfEvents.append(newEvent)
     print(
-        f'[Time: {str(time)}] Next completed {newEvent.eventType} for {queue_label} in {str(newEvent.rate)} \n')
+        f'[Time: {str(time)}] Next completed {newEvent.eventType} for Queue {queue_label} in {str(newEvent.rate)} \n')
 
 
 def start_queue(queue_label, temp):
