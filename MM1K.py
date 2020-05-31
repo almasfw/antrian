@@ -2,16 +2,34 @@
 """
 Created on Wed May 27 18:59:42 2020
 
+Modul for M/M/1 queue problem
+
 @author: Almas Fauzia
+         Gregorius Aria Neruda
+         Rayhan Naufal Ramadhan
+         
 """
 
 import random
 import queue
 import math
+import csv
 
-QUEUE_SIZE = 7
+# Global variables
 exp_dist_lambda = 0.5
 
+# maximum amount of customer inside queue (K-1), server is included, set to `0` if infinite
+QUEUE_SIZE = 8
+
+listOfEvents = []
+custArrive = 0
+custServiced = 0
+time = 0
+haventArrived = False
+dropped = []
+
+n = 100
+i = 0
 
 class Event:
     def __init__(self, eventType):
@@ -24,7 +42,7 @@ class Event:
 def decrease_rate(tempEvent, listOfEvents):
     for event in listOfEvents:
         event.rate -= tempEvent.rate
-        print(f"Remaining {event.eventType} time: {str(event.rate)}")
+        # writer.writerow([f'[Time: {str(time)}] Remaining {event.eventType} time: {str(event.rate)}'])
     return listOfEvents
 
 
@@ -33,31 +51,27 @@ def CDF_inverse(CDF):
     return -1 * math.log(1-CDF) / exp_dist_lambda
     
 
-listOfEvents = []
-custArrive = 0
-custServiced = 0
-time = 0
-haventArrived = False
-dropped = []
+# build .csv file to save the log
+file = open('logMM1K.csv', 'w', newline='')
+writer = csv.writer(file)
 
 # the first customer is arriving and entering the server when the system starts
 custArrive += 1
-print(f'Customer{str(custArrive)} is coming to the system. Time: {str(time)}')
+writer.writerow([f'[Time: {str(time)}] Customer{str(custArrive)} is coming to the system.'])
 newEvent = Event('arrival')
 listOfEvents.append(newEvent)
-print(f'Next {newEvent.eventType} in {str(newEvent.rate)}')
+# writer.writerow([f'[Time: {str(time)}] Next {newEvent.eventType} in {str(newEvent.rate)}'])
 
 custServiced += 1
-print(f'Customer{str(custServiced)} is served.')
+writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is served.'])
 newEvent = Event('service')
 listOfEvents.append(newEvent)
-print(f'Next completed {newEvent.eventType} in {str(newEvent.rate)} \n')
+# writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} in {str(newEvent.rate)}.'])
 
 # initialize queue
 q = queue.Queue(QUEUE_SIZE)
+q.put_nowait(custArrive)
 
-n = 10
-i = 0
 while i < n:
     # take the first coming event from queue
     temp = sorted(listOfEvents, key=lambda event: event.rate, reverse=False)[0]
@@ -65,7 +79,7 @@ while i < n:
     j = 0
     # search for an arrival event if temp is service event but the next customer have not arrived yet
     while (temp.eventType == 'service') & (custArrive < custServiced) & (j < (len(listOfEvents)-1)):
-        print('Next customer have not arrived yet.')
+        # writer.writerow([f'[Time: {str(time)}] Next customer have not arrived yet.'])
         haventArrived = True
         j += 1
         temp = sorted(listOfEvents, key=lambda event: event.rate)[j]
@@ -81,16 +95,13 @@ while i < n:
         newEvent = Event('arrival')
         try:
             q.put_nowait(custArrive)
-            print(
-                f'Customer{str(custArrive)} is coming to the system. Time: {str(time)}')
+            writer.writerow([f'[Time: {str(time)}] Customer{str(custArrive)} is coming to the system.'])
 
             # if there is no queue, the new customer will be straight to the server
             if custArrive == custServiced:
-                print(f'Customer{str(custServiced)} is served.')
-                q.get_nowait()
+                writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is served.'])
         except Exception as e:
-            print(
-                f"Queue is full, Customer{str(custArrive)} dropped. Time: {str(time)}")
+            writer.writerow([f'[Time: {str(time)}] Queue is full, Customer{str(custArrive)} dropped.'])
             dropped.append(custArrive)
     else:
         time += temp.rate
@@ -98,18 +109,19 @@ while i < n:
         listOfEvents.remove(temp)
         listOfEvents = decrease_rate(temp, listOfEvents)
         if custServiced not in dropped:
-            print(
-                f'Customer{str(custServiced)} is leaving. Time: {str(time)}')
+            writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is leaving.'])
+            custServiced += 1
+            while custServiced in dropped:
+                custServiced += 1
+            q.get_nowait()
             # if the next customer have arrived, the next customer is entering the server
-            if not q.empty():
-                custServiced = q.get_nowait()
-                print(f'Customer{str(custServiced)} is served.')
+            if q.empty():
+                writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is served.'])
 
     listOfEvents.append(newEvent)
-    if (newEvent.eventType == 'arrival'):
-        print(f'Next {newEvent.eventType} in {str(newEvent.rate)} \n')
-    else:
-        print(
-            f'Next completed {newEvent.eventType} in {str(newEvent.rate)} \n')
+    # if (newEvent.eventType == 'arrival'):
+    #     writer.writerow([f'[Time: {str(time)}] Next {newEvent.eventType} in {str(newEvent.rate)}.'])
+    # else:
+    #     writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} in {str(newEvent.rate)}.'])
     i += 1
     haventArrived = False
