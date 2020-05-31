@@ -1,9 +1,9 @@
 # Antrian dan Simulasi
 
-Submisi tugas mata kuliah Antrian dan Simulasi (MII4213) Semester Genap 2019/2020
-Program Studi Ilmu Komputer
-Departemen Ilmu Komputer dan Elektronika
-Fakultas Matematika dan Ilmu Pengetahuan Alam
+Submisi tugas mata kuliah Antrian dan Simulasi (MII4213) Semester Genap 2019/2020\
+Program Studi Ilmu Komputer\
+Departemen Ilmu Komputer dan Elektronika\
+Fakultas Matematika dan Ilmu Pengetahuan Alam\
 Universitas Gadjah Mada
 
 Oleh:
