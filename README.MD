@@ -1,6 +1,10 @@
 # Antrian dan Simulasi
 
-_Submission_ tugas mata kuliah Antrian dan Simulasi (MII4213) Semester Genap 2019/2020
+Submisi tugas mata kuliah Antrian dan Simulasi (MII4213) Semester Genap 2019/2020
+Program Studi Ilmu Komputer
+Departemen Ilmu Komputer dan Elektronika
+Fakultas Matematika dan Ilmu Pengetahuan Alam
+Universitas Gadjah Mada
 
 Oleh:
 
@@ -28,11 +32,12 @@ Log yang dihasilkan menyimpan informasi mengenai:
 2) Masuknya _customer_ ke server.
 3) Kepergian _customer_.
 4) Dilakukannya drop ketika _customer_ datang dan antrian telah penuh.
+
 Masing-masing informasi akan disertai dengan _timestamp_ untuk menunjukkan pada detik ke berapa peristiwa tersebut terjadi.
 
 ## Eksekusi Program
 
-Untuk menjalankan program, silakan membuka bash pada direktori disimpannya program. Untuk masing-masing program, silakan jalankan perintah:
+Untuk menjalankan program, eksekusi _commmand line_ di bawah ini pada direktori disimpannya program:
 
 1) M/M/1/K
 
