@@ -15,20 +15,20 @@ Di dalam folder ini terdapat 3 simulator untuk 3 permasalahan yang berbeda, yait
 - Permasalahan antrian M/M/c/K
 - Permasalahan antrian n-M/M/1/K
 
-Ketiga permasalahan tersebut diselesai dengan implementasi berbasis event. Terdapat 2 jenis event, arrival dan service. Event dengan rate yang paling kecil akan dieksekusi lebih dulu.
+Ketiga permasalahan tersebut diselesaikan dengan implementasi berbasis _event_. Terdapat 2 jenis _event_, _arrival_ dan _service_. _Event_ dengan _rate_ yang paling kecil akan dieksekusi lebih dulu.
 
-1) Yang terjadi ketika event arrival dieksekusi adalah datangnya customer baru ke dalam sistem. Event arrival yang baru saja dieksekusi kemudian dihapus dan dibuat event arrival baru dengan rate random. Rate pada event arrival baru menandakan waktu yang dibutuhkan untuk customer selanjutnya tiba di sistem.
+1) Yang terjadi ketika _event arrival_ dieksekusi adalah datangnya _customer_ baru ke dalam sistem. _Event arrival_ yang baru saja dieksekusi kemudian dihapus dan dibuat _event arrival_ baru dengan _rate random_. _Rate_ pada _event arrival_ baru menandakan waktu yang dibutuhkan untuk _customer_ selanjutnya tiba di sistem.
 
-2) Yang terjadi ketika event service dieksekusi adalah perginya seorang customer dari sistem. Event service yang baru saja dieksekusi dihapus dan dibuat event service baru dengan rate random. Rate pada event service baru menandakan waktu yang dibutuhkan server untuk melayani customer selanjutnya.
+2) Yang terjadi ketika _event service_ dieksekusi adalah perginya seorang _customer_ dari sistem. _Event service_ yang baru saja dieksekusi dihapus dan dibuat _event service_ baru dengan _rate random_. _Rate_ pada _event service_ baru menandakan waktu yang dibutuhkan server untuk melayani _customer_ selanjutnya.
 
-Dalam merandom rate, digunakan exponential distribution (CDF) dengan lambda 0,5. Nilai lambda dapat diubah dengan mengganti nilai exp_dist_lambda pada program.
+Dalam me-_random rate_, digunakan _exponential distribution_ (CDF) dengan lambda 0,5. Nilai lambda dapat diubah dengan mengganti nilai exp_dist_lambda pada program.
 
 Log yang dihasilkan menyimpan informasi mengenai:
-1) Kedatangan customer.
-2) Masuknya customer ke server.
-3) Kepergian customer.
-4) Dilakukannya drop ketika customer datang dan antrian telah penuh.
-Masing-masing informasi akan disertai dengan timestamp untuk menunjukkan pada detik ke berapa peristiwa tersebut terjadi.
+1) Kedatangan _customer_.
+2) Masuknya _customer_ ke server.
+3) Kepergian _customer_.
+4) Dilakukannya drop ketika _customer_ datang dan antrian telah penuh.
+Masing-masing informasi akan disertai dengan _timestamp_ untuk menunjukkan pada detik ke berapa peristiwa tersebut terjadi.
 
 ## Eksekusi Program
 
