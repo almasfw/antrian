@@ -2,7 +2,7 @@
 """
 Created on Sat May 30 2020
 
-Module for n*M/M/1/K queue problem, with the assumption that each queue share the same pool
+Module for n*M/M/1/K queue problem, with the assumption that each queue share the same pool.
 
 @author: Almas Fauzia
          Gregorius Aria Neruda
@@ -13,30 +13,7 @@ import random
 import queue
 import math
 import csv
-
-# Global variables
-exp_dist_lambda = 0.5
-
-# maximum amount of customer inside queue (K-1), set to `0` if infinite
-QUEUE_SIZE = 7
-
-QUEUES = 3  # the amount of M/M/1 queues (n)
-dropped = []
-queues = []
-servers = []
-
-listOfEvents = []
-eventsOnHold = []  # list to store events on-hold
-custArrive = 0
-custServiced = 0
-n = 50
-i = 0
-time = 0
-haventArrived = False
-
-# build .csv file to save the log
-file = open('logN-MM1K.csv', 'w', newline='')
-writer = csv.writer(file)
+import sys
 
 
 class Event:
@@ -72,14 +49,16 @@ def init_queue(queue_label):
     custArrive = i
     queues[queue_label].put_nowait(custArrive)
     n -= 1
-    writer.writerow([f'[Time: {str(time)}] Customer{str(custArrive)} is entering Queue {queue_label}.'])
+    writer.writerow(
+        [f'[Time: {str(time)}] Customer{str(custArrive)} is entering Queue {queue_label}.'])
     newEvent = Event('arrival', queue_label)
     listOfEvents.append(newEvent)
     # writer.writerow([f'[Time: {str(time)}] Next {newEvent.eventType} for Queue {queue_label} in {str(newEvent.rate)}'])
 
     custServiced = queues[queue_label].get_nowait()
     servers[queue_label].put_nowait(custServiced)
-    writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is being served in Queue {queue_label}.'])
+    writer.writerow(
+        [f'[Time: {str(time)}] Customer{str(custServiced)} is being served in server (Queue {queue_label}).'])
     newEvent = Event('service', queue_label)
     listOfEvents.append(newEvent)
     # writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} for Queue {queue_label} in {str(newEvent.rate)}'])
@@ -107,14 +86,17 @@ def start_queue(queue_label, temp):
         newEvent = Event('arrival', queue_label)
         try:
             queues[queue_label].put_nowait(custArrive)
-            writer.writerow([f'[Time: {str(time)}] Customer{str(custArrive)} is entering Queue {queue_label}.'])
+            writer.writerow(
+                [f'[Time: {str(time)}] Customer{str(custArrive)} is entering Queue {queue_label}.'])
             # if there is no queue, the new customer will be straight to the server
             if queues[queue_label].qsize() == 1 and not servers[queue_label].full():
                 custServiced = queues[queue_label].get_nowait()
                 servers[queue_label].put_nowait(custServiced)
-                writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is being served in Queue {queue_label}.'])
+                writer.writerow(
+                    [f'[Time: {str(time)}] Customer{str(custServiced)} is being served in server (Queue {queue_label}).'])
         except Exception:
-            writer.writerow([f'[Time: {str(time)}] Queue is full, Customer{str(custArrive)} is dropped from Queue {queue_label}.'])
+            writer.writerow(
+                [f'[Time: {str(time)}] Queue is full, Customer{str(custArrive)} is dropped from Queue {queue_label}.'])
             dropped.append(custArrive)
     else:
         time += temp.rate
@@ -122,12 +104,14 @@ def start_queue(queue_label, temp):
         listOfEvents.remove(temp)
         listOfEvents = decrease_rate(temp, listOfEvents)
         custServiced = servers[queue_label].get_nowait()
-        writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is leaving Queue {queue_label}.'])
+        writer.writerow(
+            [f'[Time: {str(time)}] Customer{str(custServiced)} is leaving Queue {queue_label}.'])
         # if the next customer have arrived, the next customer is entering the server
         if not queues[queue_label].empty():
             custServiced = queues[queue_label].get_nowait()
             servers[queue_label].put_nowait(custServiced)
-            writer.writerow([f'[Time: {str(time)}] Customer{str(custServiced)} is being served in Queue {queue_label}.'])
+            writer.writerow(
+                [f'[Time: {str(time)}] Customer{str(custServiced)} is being served in server (Queue {queue_label}).'])
 
     listOfEvents.append(newEvent)
     # if (newEvent.eventType == 'arrival'):
@@ -166,4 +150,35 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:  # Global variables
+        # maximum number of customers inside queue (K-1), set to `0` if infinite
+        QUEUE_SIZE = int(sys.argv[2])
+
+        # number of M/M/1 queues (n)
+        QUEUES = int(sys.argv[1])
+
+        exp_dist_lambda = 0.5
+        custArrive = 0
+        custServiced = 0
+        n = 50  # number of events
+        i = 0  # customer id
+        time = 0
+
+        dropped = []
+        queues = []
+        servers = []
+        listOfEvents = []
+        eventsOnHold = []  # list to store events on-hold
+        haventArrived = False
+
+        # build .csv file to save the log
+        file = open('logN-MM1K.csv', 'w', newline='')
+        writer = csv.writer(file)
+
+        main()
+    except IndexError:
+        print("One or more arguments is missing \n")
+        print("usage: python ./n-MM1K.py <n> <K> \n")
+        print("- c  : number of M/M/1 queues")
+        print("- K  : maximum number of customers in queue (excluding customer being served) \n")
+        sys.exit(1)

@@ -13,29 +13,7 @@ import random
 import queue
 import math
 import csv
-
-# Global variables
-exp_dist_lambda = 0.5
-
-# maximum amount of customer inside queue (K-1), set to `0` if infinite
-QUEUE_SIZE = 7
-
-SERVERS = 3  # the amount of servers (c)
-dropped = []
-servers = []
-
-listOfEvents = []
-eventsOnHold = []  # list to store events on-hold
-custArrive = 0
-custServiced = 0
-n = 150
-i = 0
-time = 0
-haventArrived = False
-
-# build .csv file to save the log
-file = open('logMMcK.csv', 'w', newline='')
-writer = csv.writer(file)
+import sys
 
 
 class Event:
@@ -97,7 +75,7 @@ def init_queue(q, server_label):
         newEvent = Event()
         newEvent.service(server)
         listOfEvents.append(newEvent)
-        # writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} for Server {server_label} in {str(newEvent.rate)}'])
+    # writer.writerow([f'[Time: {str(time)}] Next completed {newEvent.eventType} for Server {server_label} in {str(newEvent.rate)}'])
 
 
 def start_queue(q, server_label, temp):
@@ -125,6 +103,7 @@ def start_queue(q, server_label, temp):
             q.put_nowait(custArrive)
             writer.writerow(
                 [f'[Time: {str(time)}] Customer{str(custArrive)} is entering the queue.'])
+
             # if there is no queue, find empty server
             for server_label in range(len(servers)):
                 if q.qsize() == 1 and not servers[server_label].full():
@@ -133,7 +112,7 @@ def start_queue(q, server_label, temp):
                     writer.writerow(
                         [f'[Time: {str(time)}] Customer{str(custServiced)} is being served in Server {server_label}.'])
                     break
-        except Exception as e:
+        except Exception:
             writer.writerow(
                 [f'[Time: {str(time)}] Queue is full, Customer{str(custArrive)} is dropped from Queue.'])
             dropped.append(custArrive)
@@ -146,6 +125,7 @@ def start_queue(q, server_label, temp):
         custServiced = servers[server_label].get_nowait()
         writer.writerow(
             [f'[Time: {str(time)}] Customer{str(custServiced)} is leaving Server {server_label}.'])
+
         # if the next customer have arrived, the next customer is entering the server
         if not q.empty():
             custServiced = q.get_nowait()
@@ -165,7 +145,7 @@ def start_queue(q, server_label, temp):
 
 def main():
     q = queue.Queue(QUEUE_SIZE)
-    for i in range(SERVERS):
+    for server in range(SERVERS):
         servers.append(queue.Queue(1))
     init_queue(q, 0)
 
@@ -193,4 +173,34 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    try:  # Global variables
+        # maximum number of customers inside queue (K-1), set to `0` if infinite
+        QUEUE_SIZE = int(sys.argv[2])
+
+        # number of servers (c)
+        SERVERS = int(sys.argv[1])
+
+        exp_dist_lambda = 0.5
+        custArrive = 0
+        custServiced = 0
+        n = 150  # number of events
+        i = 0  # customer id
+        time = 0
+
+        dropped = []
+        servers = []
+        listOfEvents = []
+        eventsOnHold = []  # list to store events on-hold
+        haventArrived = False
+
+        # build .csv file to save the log
+        file = open('logMMcK.csv', 'w', newline='')
+        writer = csv.writer(file)
+
+        main()
+    except IndexError:
+        print("One or more arguments is missing \n")
+        print("usage: python ./MMcK.py <c> <K> \n")
+        print("- c  : number of servers")
+        print("- K  : maximum number of customers in queue (excluding customer being served) \n")
+        sys.exit(1)
