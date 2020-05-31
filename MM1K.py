@@ -129,7 +129,7 @@ while i < n:
                 custServiced += 1
             q.get_nowait()
             # if the next customer have arrived, the next customer is entering the server
-            if q.empty():
+            if not q.empty():
                 writer.writerow(
                     [f'[Time: {str(time)}] Customer{str(custServiced)} is served.'])
 
